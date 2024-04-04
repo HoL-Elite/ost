@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+</head>
+<body>
+    <h1>HTML Audio Player with Playlist</h1>
+
+    <audio id="audio-player">
+        Your browser does not support the audio element.
+    </audio>
+
+    <ul id="playlist">
+        <li><a href="/music/Brink.mp3">Brink</a></li>
+        <li><a href="/music/Crystal.mp3">Crystal</a></li>
+        <li><a href="/music/I.mp3">I</a></li>
+        <li><a href="/music/II.mp3">II</a></li>
+        <li><a href="/music/III.mp3">III</a></li>
+        <li><a href="/music/IV.mp3">IV</a></li>
+        <li><a href="/music/IX.mp3">IX</a></li>
+        <li><a href="/music/Pe Loc.mp3">Pe Loc</a></li>
+        <li><a href="/music/Room 1.mp3">Room 1</a></li>
+        <li><a href="/music/Room 2.mp3">Room 2</a></li>
+        <li><a href="/music/Room 3.mp3">Room 3</a></li>
+        <li><a href="/music/Room 4.mp3">Room 4</a></li>
+        <li><a href="/music/Room 5.mp3">Room 5</a></li>
+        <li><a href="/music/Room 6.mp3">Room 6</a></li>
+        <li><a href="/music/Room 7.mp3">Room 7</a></li>
+        <li><a href="/music/Room 8.mp3">Room 8</a></li>
+        <li><a href="/music/Room 9.mp3">Room 9</a></li>
+        <li><a href="/music/Room 10.mp3">Room 10</a></li>
+        <li><a href="/music/The Future Never Comes.mp3">The Future Never Comes</a></li>
+        <li><a href="/music/V.mp3">V</a></li>
+        <li><a href="/music/VI.mp3">VI</a></li>
+        <li><a href="/music/VII.mp3">VII</a></li>
+        <li><a href="/music/VIII.mp3">VIII</a></li>
+        <li><a href="/music/Wingbeats Source IV/ Tuned Percussion, Harp, Mey.mp3">Wingbeats Source IV/ Tuned Percussion, Harp, Mey</a></li>
+        <li><a href="/music/X.mp3">X</a></li>
+    </ul>
+
+    <button onclick="play()">Play</button>
+    <button onclick="pause()">Pause</button>
+    <button onclick="next()">Next</button>
+    <button onclick="previous()">Previous</button>
+
+    <script>
+        const audioPlayer = document.getElementById('audio-player');
+        const playlist = document.getElementById('playlist').querySelectorAll('a');
+        let currentIndex = 0;
+
+        function play() {
+            audioPlayer.src = playlist[currentIndex].href;
+            audioPlayer.play();
+        }
+
+        function pause() {
+            audioPlayer.pause();
+        }
+
+        function next() {
+            currentIndex = (currentIndex + 1) % playlist.length;
+            play();
+        }
+
+        function previous() {
+            currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+            play();
+        }
+    </script>
+</body>
+</html>
